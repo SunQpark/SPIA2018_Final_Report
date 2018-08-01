@@ -1,22 +1,18 @@
 \chapter{Introduction}\label{Ch:Introduction}
+This project is to implement CycleGAN to achieve Sketch-to-Image generation. Sketch-to-Image generation is a class of Image-to-Image translation where the goal is to learn the mapping between distinct domains of image, for example, In 2017, Jun-Yan Zhu, Taesung Park, Phillip Isola and Alexei A. Efros achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \{G:X \rightarrow Y\} such that the distribution of images from \{G(X)\} indistinguishable from the distribution \{Y\} using an adversial loss. In other word, it can generate high quality photo from a sketch image.###Can put more detail on the introduction of GAN above### ###Some result we achieved ###\\
 
-The introduction should describe what the purpose of the project is/was and what you have accomplished.
-The introduction, as well as other parts of the report, can be developed incrementally and will evolve with the project.
-The introduction should contain the following items:
-\begin{enumerate}{}
-\item a brief description of the sponsoring organization (which often can be derived from the organization's online boilerplate), 
-\item a suitably condensed statement of the problem posed by the sponsor, 
-\item some discussion of the relevance of the project to the sponsor's business, 
-\item the team's approach to the problem, gleaned from the team's Work Statement (including a summary of background study, i.e., literature review, to explain how your work differs from or builds on previous efforts --- this explanation should be reinforced by entries with annotation in the bibliography),
-\item summary of the report: in separate paragraphs specify and summarize the major sections of your report (Ch 2, Ch 3, ... , Conclusion,  Appendixes, Glossary, Bibliography).
-\end{enumerate}
+The team would like to thank Tencent for the generous sponsorship of this project. Tencent is founded in November, 1998, Tencent is a leading provider of Internet value added services in China. Since its establishment, Tencent has maintained steady growth under its user-oriented operating strategies. On June 16, 2004, Tencent Holdings Limited (SEHK 700) went public on the main board of the Hong Kong Stock Exchange.\\
 
-The team as a whole is responsible for the development of a RIPS report, but various aspects will be divided among individuals, as your team will choose.
-A Report Coordinator (RC), selected from the team in the first week of the project, will be responsible for incorporating evolving components of your team's report into the {\LaTeX} template that was used to typeset this document, produced in a particular style we refer to as the {\it RIPS  House Style}.
 
-The template requires familiarity, and so a {\LaTeX} tutorial explaining its use  will be given during the second week of RIPS, and a special section for RCs is available in the ``Templates-etc'' folder on IPAM's R-Drive.
-For more information, see  also the  README file.
-Prior familiarity with {\LaTeX}  would be advantageous for an RC, but expertise is not necessary because assistance will be provided by RIPS.
+###some discussion of the relevance of the project to the sponsor’s business,###\\
+
+
+
+###Something about the Related Work###\\
+
+Our code is available at https://github.com/SunQpark/SPIA2018_cycle_GAN.
+
+
 
 
 \endinput
