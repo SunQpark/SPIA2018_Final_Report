@@ -1,6 +1,14 @@
 \chapter{Background}\label{Ch:Background}
 In the field of image translation trained with unpaired image datasets, 3 models, CycleGAN, DiscoGAN, DualGAN are doing the same thing from high level perspective.
 
+In detail, the differences are
+CycleGAN uses instance normalization, patchGAN discriminator. To stabilize the training, use least square GAN. Replay buffer
+              no random input z no drop out; L1 distance as cycle consistency
+
+DualGAN use generator and discriminator of pix2pix; no random input z but implemented drop out; use wgan;
+             L1 distance as cycle consistency
+
+DiscoGAN generator: conv, deconv and leaky relu; discriminator:conv+leaky relu  L2 distance as cycle consistency
 
 % The basic structure of a RIPS report consists of \emph{front matter}, the \emph{text} (\emph{main matter} or \emph{body}), and \emph{back matter}.%%
 % \footnote{
