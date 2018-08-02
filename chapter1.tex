@@ -2,12 +2,11 @@
 
 \section{Project Goal}
 
-The goal of this project is to build a system that can generate photo-realistic images from rough sketch pictures. For that, we utilized the Cycle-GAN~\cite{CycleGAN}
+The goal of this project is to build a system that can generate photo-realistic images from rough sketch pictures. For that, we utilized the Cycle-GAN~\cite{CycleGAN} 
 
 \section{Related Works}
 
-Sketch-to-Image generation is a sub-problem of Image-to-Image translation where the goal is to 
-learn the mapping between distinct domains of image. 
+Sketch-to-Photograph generation is a sub-problem of Image-to-Image translation where the goal is to learn the mapping between distinct domains of image. 
 In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \(G:X \rightarrow Y\) such that the distribution of images from \(G(X)\) indistinguishable from the distribution \(Y\) using an adversial loss. In other word, it can generate high quality photo from a sketch image.\\%%%Can put more detail on the introduction of GAN above %%%Some result we achieved %%%\\
 
 
