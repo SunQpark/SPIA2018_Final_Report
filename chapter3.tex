@@ -2,7 +2,9 @@
 
 
 \section{Collection and Refinement of Data}
-% TODO: add table about composition of dataset
+In this section, we will explain about the progresses of collecting and refining data we've gone through. 
+Table % TODO: add table about composition of dataset
+shows the composition of dataset we used in experiments. 
 
 \subsection{Photograph}
 
@@ -10,20 +12,36 @@ For realistic photographs of human faces, we used Celebrity A~\cite{liu2015facea
 
 \subsection{Sketch}
 
-The main portion of sketch image dataset we used was collected from Google Image search engine. However, 
+The main portion of sketch image dataset we used was collected from Google Image search engine. However, the collected images were highly inconsistent, which was undisirable. 
+figure %TODO: add figure: bad examples
+shows some bad examples of image which were included in the first collection. Thus, these images has gone through preprocessing steps, which will be described in next section~\ref{preprocess}
+After preprocessing steps, these images were aligned as fig%TODO: add figure: after preprocess
 
+We also used CUHK(The Chinese University of Hong Kong) face sketch database(CUFS)~\cite{CUHK_faces}, containing about 500 face sketches. 
+Although this dataset also provides face photographs paired with the sketch images, we only used the sketch images to train our model to keep it from overfitting to these paired images.
 
-We also used CUHK face sketch database(CUFS)~\cite{CUHK_faces}, 
+Examples of images in each dataset can be seen in fig.%TODO: add figure: example of images in dataset
 
 \subsection{Preprocess}\label{preprocess}
 
+In this section we deals with the preprocessing steps on face sketches and photos, which were applied separately before the training of model. By experiments of a few weeks, we found this part crucial to the performance of model. 
+The first step of data refinement was to detect every faces for each image. By excluding images not containing recognized faces, we could get rid of 20\% of bad examples in sketch database. Then, we applied `facial landmark detection' for the detected faces, in order to get further information concerning the direction of head in the images. We utilized the `dlib' framework ~\cite{dlib} for those two steps.
+Next, we rotated the images to have faces aligned vertically using the detected locations of two eyes.
+Finally, the images were cropped to have faces in center and 30\% of the width of head margins on both sides. The cropped images have 128 by 128 size in the end of preprocessings. Those steps were applied to both sketch and photo images to make them consistent in any attributes other than it is sketch or photo. 
 
-\section{ResNet and U-net}
+After some experiments we found that the model was learning to put smile on the generated photo from sketch images even when the original sketch images were not smiling. This seemed to be originated from the fact that images in photograph have smile in most case, while sketch images haven't. Since this was undisired effect, we reduced the ratio of smiling faces in the photograph dataset. This process was done by checking attributes file which Celebrity A dataset provided to see wether given image is smiling or not and using only one images per 20 smiling images.
+
+\section{Model Structure}
+
+As we mentioned earlier, baseline structure mainly used in this project is Cycle-GAN. The Cycle-GAN consists of two GAN models, which learn to translate images from one domain to the other, one direction per each respectively. 
 
 
 \section{Stabilization of GAN Training}
 
 
 \section{Evaluation Metric}
+
+`Inception Score'~\cite{improved_tech_GANs}
+While there are some of defeats ~\cite{note_on_inception}
 
 \endinput
