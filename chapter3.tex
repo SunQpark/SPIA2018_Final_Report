@@ -1,9 +1,9 @@
-\chapter{Methodology}\label{Ch:Methodology}
+\chapter{Processing Data}\label{Ch:process_data}
 
 
 \section{Collection and Refinement of Data}
 In this section, we will explain about the progresses of collecting and refining data we've gone through. 
-Table~\ref{TABLE:composition} shows the composition of dataset we used in experiments. For most of experiments we used dataset composed as in Set1 in table.
+Table~\ref{TABLE:composition} shows the composition of dataset we used in experiments. Unless mentioned otherwise, every dataset used in experiments composed as the proportion as Set1 in table.
 
 \begin{table}[h]
     \begin{center}
@@ -20,10 +20,10 @@ Table~\ref{TABLE:composition} shows the composition of dataset we used in experi
           \hline
         \end{tabular}
     \end{center}
-    \caption{Number of images used for training in each component. }\label{TABLE:composition}
+    \caption{Number of images used for training in each component.}\label{TABLE:composition}
 \end{table}
-    
 
+More details on each sources of data will be provided in following sections.
 
 \subsection{Photograph}
 
@@ -49,18 +49,5 @@ Next, we rotated the images to have faces aligned vertically using the detected 
 Finally, the images were cropped to have faces in center and 30\% of the width of head margins on both sides. The cropped images have 128 by 128 size in the end of preprocessings. Those steps were applied to both sketch and photo images to make them consistent in any attributes other than it is sketch or photo. 
 
 After some experiments we found that the model was learning to put smile on the generated photo from sketch images even when the original sketch images were not smiling. This seemed to be originated from the fact that images in photograph have smile in most case, while sketch images haven't. Since this was undisired effect, we reduced the ratio of smiling faces in the photograph dataset. This process was done by checking attributes file which Celebrity A dataset provided to see wether given image is smiling or not and using only one images per 20 smiling images.
-
-\section{Model Structure}
-
-As we mentioned earlier, baseline structure mainly used in this project is Cycle-GAN. The Cycle-GAN consists of two GAN models, which learn to translate images from one domain to the other, one direction per each respectively. 
-
-
-\section{Stabilization of GAN Training}
-
-
-\section{Evaluation Metric}
-
-`Inception Score'~\cite{improved_tech_GANs}
-While there are some of defeats ~\cite{note_on_inception}
 
 \endinput
