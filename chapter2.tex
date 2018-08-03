@@ -5,7 +5,7 @@ The original GAN proposed by Goodfellow can train a generator to learn the real 
 
 In the field of image translation trained with unpaired image datasets, 3 models, CycleGAN, DiscoGAN, DualGAN are doing the same thing
 from high level perspective. They train two generative models to learn the mapping between two image domains by training two discriminators
-at each domain together and cosidering the cycle-consistency loss, which ensures ignorable difference between images and reconstructed images.
+at each domain together and considering the cycle-consistency loss, which ensures ignorable difference between images and reconstructed images.
 \\
 In detail, the differences are
 CycleGAN uses instance normalization, patchGAN discriminator. To stabilize the training, use least square GAN. Replay buffer
@@ -21,7 +21,16 @@ DiscoGAN generator: conv, deconv and leaky relu; discriminator:conv+leaky relu  
 \section{Evaluation Metric}
 
 `Inception Score'~\cite{improved_tech_GANs}
-While there are some of defeats ~\cite{note_on_inception}
+
+"We apply the Inception model1
+[19] to every
+generated image to get the conditional label distribution p(y|x). Images that contain meaningful
+objects should have a conditional label distribution p(y|x) with low entropy. Moreover, we expect
+the model to generate varied images, so the marginal R
+\[p(y|x = G(z))\]dz should have high entropy.
+Combining these two requirements, the metric that we propose is: \[exp(E_xKL(p(y|x)||p(y)))\], where
+we exponentiate results so the values are easier to compare."
+While there are some of defeats ~\cite{note_on_inception}%TODO: rephrase
 
 % The basic structure of a RIPS report consists of \emph{front matter}, the \emph{text} (\emph{main matter} or \emph{body}), and \emph{back matter}.%%
 % \footnote{
