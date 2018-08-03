@@ -43,11 +43,26 @@ Examples of images in each dataset can be seen in fig.%TODO: add figure: example
 
 \subsection{Preprocess}\label{preprocess}
 
+\begin{figure}[ht]
+    \label{BibSamples}
+    \begin{center}
+    \includegraphics[scale=0.6]{Graphics/000005.jpg}
+    \includegraphics[scale=0.6]{Graphics/00000013_orig.jpeg}
+
+    \includegraphics[scale=0.6]{Graphics/000004.png}
+    \includegraphics[scale=0.6]{Graphics/00000013.jpeg}
+    \end{center}
+    \caption{Preprocessing examples. Original images containing faces(top) and results after preprocessing steps(bottom)}
+\end{figure}
+
 In this section we deals with the preprocessing steps on face sketches and photos, which were applied separately before the training of model. By experiments of a few weeks, we found this part crucial to the performance of model. 
 The first step of data refinement was to detect every faces for each image. By excluding images not containing recognized faces, we could get rid of 20\% of bad examples in sketch database. Then, we applied `facial landmark detection' for the detected faces, in order to get further information concerning the direction of head in the images. We utilized the `dlib' framework ~\cite{dlib} for those two steps.
 Next, we rotated the images to have faces aligned vertically using the detected locations of two eyes.
 Finally, the images were cropped to have faces in center and 30\% of the width of head margins on both sides. The cropped images have 128 by 128 size in the end of preprocessings. Those steps were applied to both sketch and photo images to make them consistent in any attributes other than it is sketch or photo. 
 
 After some experiments we found that the model was learning to put smile on the generated photo from sketch images even when the original sketch images were not smiling. This seemed to be originated from the fact that images in photograph have smile in most case, while sketch images haven't. Since this was undisired effect, we reduced the ratio of smiling faces in the photograph dataset. This process was done by checking attributes file which Celebrity A dataset provided to see wether given image is smiling or not and using only one images per 20 smiling images.
+
+\subsection{Generating Sketch Images}
+% TODO: add content to or remove this part
 
 \endinput
