@@ -1,5 +1,8 @@
 \chapter{Background}\label{Ch:Background}
-In the field of image translation trained with unpaired image datasets, 3 models, CycleGAN, DiscoGAN, DualGAN are doing the same thing from high level perspective.
+There are two main approaches for image generation tasks: generative adversarial nets and variational autoencoder. In this project, only GAN-related methods will be considered and inplemented.
+The original GAN proposed by Goodfellow can train a generator to learn the real image distribution by training a discriminator together, which can 
+In the field of image translation trained with unpaired image datasets, 3 models, CycleGAN, DiscoGAN, DualGAN are doing the same thing %TODO: add
+from high level perspective.
 
 In detail, the differences are
 CycleGAN uses instance normalization, patchGAN discriminator. To stabilize the training, use least square GAN. Replay buffer
