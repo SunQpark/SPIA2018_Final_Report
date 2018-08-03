@@ -15,22 +15,22 @@ DualGAN use generator and discriminator of pix2pix; no random input z but implem
              L1 distance as cycle consistency
 
 DiscoGAN generator: conv, deconv and leaky relu; discriminator:conv+leaky relu  L2 distance as cycle consistency
-
-
-% this part will be moved
-\section{Evaluation Metric}
-
-`Inception Score'~\cite{improved_tech_GANs}
-
-"We apply the Inception model1
-[19] to every
-generated image to get the conditional label distribution p(y|x). Images that contain meaningful
-objects should have a conditional label distribution p(y|x) with low entropy. Moreover, we expect
-the model to generate varied images, so the marginal R
-\[p(y|x = G(z))\]dz should have high entropy.
-Combining these two requirements, the metric that we propose is: \[exp(E_xKL(p(y|x)||p(y)))\], where
-we exponentiate results so the values are easier to compare."
-While there are some of defeats ~\cite{note_on_inception}%TODO: rephrase
+%
+%
+%% this part will be moved
+%\section{Evaluation Metric}
+%
+%`Inception Score'~\cite{improved_tech_GANs}
+%
+%"We apply the Inception model1
+%[19] to every
+%generated image to get the conditional label distribution p(y|x). Images that contain meaningful
+%objects should have a conditional label distribution p(y|x) with low entropy. Moreover, we expect
+%the model to generate varied images, so the marginal R
+%\[p(y|x = G(z))\]dz should have high entropy.
+%Combining these two requirements, the metric that we propose is: \[exp(E_xKL(p(y|x)||p(y)))\], where
+%we exponentiate results so the values are easier to compare."
+%While there are some of defeats ~\cite{note_on_inception}%TODO: rephrase
 
 % The basic structure of a RIPS report consists of \emph{front matter}, the \emph{text} (\emph{main matter} or \emph{body}), and \emph{back matter}.%%
 % \footnote{

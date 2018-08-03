@@ -12,9 +12,13 @@ In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra usi
 
 \textbf{GAN}: A method of handling Image translation problem is to adopt a Generative adversarial network. Implementing adversarial loss, GAN is able to train the convergence algorithm so that the generator's distribution converges to the data\cite{GANs0} . This contributed to the success of GAN in generating realistic images with an impressive result. 
 
+\textbf{WGAN}: As an improvement of GAN, it replaces Jensen-Shannon divergence by Wasserstein distance to calculate the distance between distributions. It solves the mode collapse problem and it proposes an index standing for the quality of training where a larger index represents better results.
+
 \textbf{Pix2Pix}: The framework of Pix2Pix is based on GAN. With a paired training example, Pix2Pix is able to deal with Image-to-Image translation 
 
 \textbf{CycleGAN}: As an improvement of Pix2Pix, the model of CycleGAN does not required paired training examples to train the model. It contains two mapping functions $G:X\rightarrow Y$ and $F:Y\rightarrow X$ from two data sets $X,Y$, and associated with two discriminators $D_{X}$ and $D_{Y}$. In the model, two cycle consistency losses (Forward and Backward) was introduced so that it can achieve two mapping where $F(G(x))\approx x$ and $G(F(y))\approx y$\cite{CycleGAN}. In this work, we implemented the CycleGAN to work on the Sketch-to-Image translation. Using the U-net instead of the ResNet, we trained the model to specialized in generating realistic human face photograph from a human face sketch as well as generating sketch from human face photograph such that both sketches and human face photograph are indistinguishable from target domain.
+
+\textbf{LSGAN}: Use least square loss function to replace the loss function of GAN, which improved the stability of GAN training and the quality of generated images.
 
 The team would like to thank \emph{Tencent} for the generous sponsorship of this project. 
 % Founded in November, 1998, Tencent is a leading provider of Internet value added services in China. Since its establishment, Tencent has maintained steady growth under its user-oriented operating strategies. On \(16^{\textnormal{th}}\) June 2004, Tencent Holdings Limited (SEHK 700) went public on the main board of the Hong Kong Stock Exchange.\\
