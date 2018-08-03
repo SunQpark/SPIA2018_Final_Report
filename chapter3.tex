@@ -34,7 +34,7 @@ For realistic photographs of human faces, we used Celebrity A~\cite{liu2015facea
 The main portion of sketch image dataset we used was collected from Google Image search engine. However, the collected images were highly inconsistent, which was undisirable. 
 figure %TODO: add figure: bad examples
 shows some bad examples of image which were included in the first collection. Thus, these images has gone through preprocessing steps, which will be described in next section~\ref{preprocess}
-After preprocessing steps, these images were aligned as fig%TODO: add figure: after preprocess
+After preprocessing steps, these images were aligned as fig~\ref{FIG:preprocess}
 
 We also used CUHK(The Chinese University of Hong Kong) face sketch database(CUFS)~\cite{CUHK_faces}, containing about 500 face sketches. 
 Although this dataset also provides face photographs paired with the sketch images, we only used the sketch images to train our model to keep it from overfitting to these paired images.
@@ -44,7 +44,6 @@ Examples of images in each dataset can be seen in fig.%TODO: add figure: example
 \subsection{Preprocess}\label{preprocess}
 
 \begin{figure}[ht]
-    \label{BibSamples}
     \begin{center}
     \includegraphics[scale=0.6]{Graphics/000005.jpg}
     \includegraphics[scale=0.6]{Graphics/00000013_orig.jpeg}
@@ -52,7 +51,7 @@ Examples of images in each dataset can be seen in fig.%TODO: add figure: example
     \includegraphics[scale=0.6]{Graphics/000004.png}
     \includegraphics[scale=0.6]{Graphics/00000013.jpeg}
     \end{center}
-    \caption{Preprocessing examples. Original images containing faces(top) and results after preprocessing steps(bottom)}
+    \caption{Preprocessing examples. Original images containing faces(top) and results after preprocessing steps(bottom)}\label{FIG:preprocess}
 \end{figure}
 
 In this section we deals with the preprocessing steps on face sketches and photos, which were applied separately before the training of model. By experiments of a few weeks, we found this part crucial to the performance of model. 
