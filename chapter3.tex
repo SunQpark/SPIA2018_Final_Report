@@ -3,8 +3,27 @@
 
 \section{Collection and Refinement of Data}
 In this section, we will explain about the progresses of collecting and refining data we've gone through. 
-Table % TODO: add table about composition of dataset
-shows the composition of dataset we used in experiments. 
+Table~\ref{TABLE:composition} shows the composition of dataset we used in experiments. For most of experiments we used dataset composed as in Set1 in table.
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+          \hline
+          \multirow{2}{*}{Dataset} &
+            \multicolumn{3}{c}{Sketch} &
+            \multicolumn{1}{c|}{Photo}\\
+          & Collected & CUFS & Sketch Filter & Celeb A\\
+          \hline
+          Set1 & 920 (30.8\%) & 571 (19.2\%) & 0 (0.0\%) & 1500 (50.1\%) \\
+          \hline
+          Set2 & 920 (16.8\%) & 571 (10.4\%) & 1000 (18.2\%) & 3000 (54.6\%) \\
+          \hline
+        \end{tabular}
+    \end{center}
+    \caption{Number of images used for training in each component. }\label{TABLE:composition}
+\end{table}
+    
+
 
 \subsection{Photograph}
 
