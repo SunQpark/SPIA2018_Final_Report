@@ -7,14 +7,18 @@ The goal of this project is to build a system that can generate photo-realistic 
 \section{Related Works}
 
 Sketch-to-Photograph generation is a sub-problem of Image-to-Image translation where the goal is to learn the mapping between distinct domains of image. 
-In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \(G:X \rightarrow Y\) such that the distribution of images from \(G(X)\) indistinguishable from the distribution \(Y\) using an adversial loss. In other word, it can generate high quality photo from a sketch image.\\%%%Can put more detail on the introduction of GAN above %%%Some result we achieved %%%\\
+
+In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \(G:X \rightarrow Y\) such that the distribution of images from \(G(X)\) indistinguishable from the distribution \(Y\) using an adversial loss. In other word, it can generate high quality photo from a sketch image.%%%Can put more detail on the introduction of GAN above %%%Some result we achieved %%%\\
+
+\textbf{GAN}: A method of handling Image-to-Image translation problem is to adopt a Generative adversarial network. Implementing adversarial loss, GAN is able to train the convergence algorithm so that the generator's distribution converges to the data\cite{GANs0} . This contributed to the success of GAN in generating realistic images with an impressive result.
+
 
 
 The team would like to thank \emph{Tencent} for the generous sponsorship of this project. 
 % Founded in November, 1998, Tencent is a leading provider of Internet value added services in China. Since its establishment, Tencent has maintained steady growth under its user-oriented operating strategies. On \(16^{\textnormal{th}}\) June 2004, Tencent Holdings Limited (SEHK 700) went public on the main board of the Hong Kong Stock Exchange.\\
 
 
-%%%Something about the Related Work%%% \\
+
 
 Our code is available at \texttt{https://github.com/SunQpark/SPIA2018\_cycle\_GAN}.
 
