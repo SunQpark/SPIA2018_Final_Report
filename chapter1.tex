@@ -8,11 +8,13 @@ The goal of this project is to build a system that can generate photo-realistic 
 
 Sketch-to-Photograph generation is a sub-problem of Image-to-Image translation where the goal is to learn the mapping between distinct domains of image. 
 
-In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \(G:X \rightarrow Y\) such that the distribution of images from \(G(X)\) indistinguishable from the distribution \(Y\) using an adversial loss. In other word, it can generate high quality photo from a sketch image.%%%Can put more detail on the introduction of GAN above %%%Some result we achieved %%%\\
+In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \(G:X \rightarrow Y\) such that the distribution of images from \(G(X)\) indistinguishable from the distribution \(Y\). In other word, it can generate high quality human face photograph from face sketch image.
 
-\textbf{GAN}: A method of handling Image-to-Image translation problem is to adopt a Generative adversarial network. Implementing adversarial loss, GAN is able to train the convergence algorithm so that the generator's distribution converges to the data\cite{GANs0} . This contributed to the success of GAN in generating realistic images with an impressive result.
+\textbf{GAN}: A method of handling Image translation problem is to adopt a Generative adversarial network. Implementing adversarial loss, GAN is able to train the convergence algorithm so that the generator's distribution converges to the data\cite{GANs0} . This contributed to the success of GAN in generating realistic images with an impressive result. 
 
+\textbf{Pix2Pix}: The framework of Pix2Pix is based on GAN. With a paired training example, Pix2Pix is able to deal with Image-to-Image translation 
 
+\textbf{CycleGAN}: As an improvement of Pix2Pix, the model of CycleGAN does not required paired training examples to train the model. It contains two mapping functions $G:X\rightarrow Y$ and $F:Y\rightarrow X$ from two data sets $X,Y$, and associated with two discriminators $D_{X}$ and $D_{Y}$. In the model, two cycle consistency losses (Forward and Backward) was introduced so that it can achieve two mapping where $F(G(x))\approx x$ and $G(F(y))\approx y$\cite{CycleGAN}. In this work, we implemented the CycleGAN to work on the Sketch-to-Image translation. Using the U-net instead of the ResNet, we trained the model to specialized in generating realistic human face photograph from a human face sketch as well as generating sketch from human face photograph such that both sketches and human face photograph are indistinguishable from target domain.
 
 The team would like to thank \emph{Tencent} for the generous sponsorship of this project. 
 % Founded in November, 1998, Tencent is a leading provider of Internet value added services in China. Since its establishment, Tencent has maintained steady growth under its user-oriented operating strategies. On \(16^{\textnormal{th}}\) June 2004, Tencent Holdings Limited (SEHK 700) went public on the main board of the Hong Kong Stock Exchange.\\
@@ -26,3 +28,7 @@ Our code is available at \texttt{https://github.com/SunQpark/SPIA2018\_cycle\_GA
 
 
 \endinput
+
+
+
+
