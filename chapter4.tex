@@ -3,8 +3,20 @@
 \section{Network Architectures}
 
 As we mentioned earlier, baseline structure mainly used in this project is Cycle-GAN. The Cycle-GAN consists of two GAN models, which learn to translate images from one domain to the other, one direction per each respectively. 
-
-
+\\
+Each generator consists of convoulutional layers as decoder layers and deconvoulutional layers as encoder layers and bottleneck layers. Pooling layers and batch normalization are also implemented in
+decoders and encoders. At the beginning, we implemented resnet to connect the decoder and encoder as suggested by the original paper. Later, we configured the generators
+to be u-shape nets where skip connections between downsampling layers and upsampling layers are enabled. In this way, low-level information is shared with upsampling layers
+without passing through bottleneck layers, which significantly reduces infomation loss and ensures feedback on internal structures of both inputs and outputs.
+\\
+%TODO:discriminator
+"For the discriminator
+networks we use 70 × 70 PatchGANs , which
+aim to classify whether 70 × 70 overlapping image patches
+are real or fake. Such a patch-level discriminator architecture
+has fewer parameters than a full-image discriminator,
+and can be applied to arbitrarily-sized images in a fully convolutional
+fashion ."
 \section{Stabilization of GAN Training}
 
 wGAN
