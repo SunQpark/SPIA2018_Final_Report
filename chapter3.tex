@@ -33,8 +33,8 @@ For realistic photographs of human faces, we used Celebrity A~\cite{liu2015facea
 
 The main portion of sketch image dataset we used was collected from Google Image search engine. However, the collected images were highly inconsistent, which was undisirable. 
 figure %TODO: add figure: bad examples
-shows some bad examples of image which were included in the first collection. Thus, these images has gone through preprocessing steps, which will be described in next section~\ref{preprocess}
-After preprocessing steps, these images were aligned as fig~\ref{FIG:preprocess}
+shows some bad examples of image which were included in the first collection. Thus, these images has gone through preprocessing steps, which will be described in next section~\ref{preprocess}.
+After preprocessing steps, these images were aligned as fig~\ref{FIG:preprocess}.
 
 We also used CUHK(The Chinese University of Hong Kong) face sketch database(CUFS)~\cite{CUHK_faces}, containing about 500 face sketches. 
 Although this dataset also provides face photographs paired with the sketch images, we only used the sketch images to train our model to keep it from overfitting to these paired images.
@@ -61,7 +61,5 @@ Finally, the images were cropped to have faces in center and 30\% of the width o
 
 After some experiments we found that the model was learning to put smile on the generated photo from sketch images even when the original sketch images were not smiling. This seemed to be originated from the fact that images in photograph have smile in most case, while sketch images haven't. Since this was undisired effect, we reduced the ratio of smiling faces in the photograph dataset. This process was done by checking attributes file which Celebrity A dataset provided to see wether given image is smiling or not and using only one images per 20 smiling images.
 
-\subsection{Generating Sketch Images}
-% TODO: add content to or remove this part
 
 \endinput
