@@ -1,21 +1,22 @@
 \chapter{Introduction}\label{Ch:Introduction}
 
-\section{Project Goal}
+The goal of this project is to build a system that can generate photo-realistic images from rough sketch pictures. To serve this purpose, we utilized the Cycle-GAN~\cite{CycleGAN} with sketch images collected from google image search and Celebrity A dataset~\cite{liu2015faceattributes}. The process of collecting and refining data, and detailed information about netrwork architecture are provided at Chapter~\ref{Ch:process_data} and at Chapter~\ref{Ch:Model} respectively. 
 
-The goal of this project is to build a system that can generate photo-realistic images from rough sketch pictures. To serve this purpose, we utilized the Cycle-GAN~\cite{CycleGAN} with sketch images collected from google image search and Celebrity A dataset~\cite{liu2015faceattributes}. The detailed information about netrwork architecture and processing the collected data will be provided at~\ref{Ch:Model} and at ~\ref{Ch:process_data} respectively.
-
+The series of experiments and their result images can be found in Chapter~\ref{Ch:Result} and Chapter~\ref{Ch:Conclusion} with description, which would be considered as the main content of this report. All the code we used has been made available to public at \texttt{https://github.com/SunQpark/SPIA2018\_cycle\_GAN}. The only thing excluded is the input images, which are considered to contain some images that are able to cause some legal issues. Any kind of interest or contribution on our project would be welcomed.
 
 \section{Related Works}
 
-Sketch-to-Photograph generation is a sub-problem of Image-to-Image translation where the goal is to learn the mapping between distinct domains of image.
+Sketch-to-Photograph generation is a sub-problem of task called Image-to-Image translation. In general, the goal of the Image-to-Image problem is to learn the mapping between distinct domains of image. The problem include some of most important problems in image processing by computer science, such as image segmentation~\cite{FCN} where one domain is the natural image and the other is semantic label of that image, or image colorization~\cite{colorization} where one domain is grayscale image and the other is RGB image, and so on. The recent Image-to-Image translation approach has been hugely improved due to the raise of deep learning in the field of computer vision, especially using the method of \emph{Generative adversarial network(GAN)} models.
 
-In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra using Cycle-Consistent Adversarial Networks. However, in the Sketch-to-Image generation, the mapping between photo and sketch always cause loss in dimension of data, resulting in losting the uniqueness of mapping. Our goal is to train a Cycle-Consistent Adversarial Networks to learn a mapping \(G:X \rightarrow Y\) such that the distribution of images from \(G(X)\) indistinguishable from the distribution \(Y\). In other word, it can generate high quality human face photograph from face sketch image.
+Being published by Ian Goodfellow in 2014, GAN is originally developed as a generative model whose purpose is to train a generative model that can make fake data which look as similar as the given set of train data. To achive that object, GAN make use of two-player min-max game setup. One part of GAN is called the Generator, which are supposed to learn to generate images. To be more specific, generator part of GAN takes random gaussian noise vector as input and transform that noise into image features using the set of parameters included in the model. On the other hand Discriminator, the remaining part of GAN, takes image as input, and guesses whether the input image is sampled from the given set of input data(real) or generated(fake) by the generator. As the training of GAN goes on, the discriminator gets better and better at telling the fake images apart from the real images, which results in the generator to produce realistic images to fool the discriminator.
 
-\textbf{GAN}: A method of handling Image translation problem is to adopt a Generative adversarial network. Implementing adversarial loss, GAN is able to train the convergence algorithm so that the generator's distribution converges to the data\cite{GANs0} . This contributed to the success of GAN in generating realistic images with an impressive result.
+When GAN was so successful in the field of image generation, it was a model called \emph{Pix-to-Pix}~\cite{pix2pix} that first succeeded in applying GAN to image conversion, not image creation. While there were approaches before Pix-to-Pix to transform images using supervised deep-learning, with the ordinary cross-entropy or mean-squared-error as loss function tended to produce blurry and weird images rather than realistic images, since that was 'safe' choice of model under loss function that puts penalty on the pixel-wise difference of result image, not the subjective quality of that. Pix-to-Pix model solved this problematic situation by setting up discriminator to penalize the output that does not looks like true result image and succeed in generating realistic images.
+
+Although the Pix2Pix model succeeded in producing realistic images using GAN loss, it still had the disadvantage of requiring a paired image dataset to train the model due to the supervised setup of problem. Where the \emph{CycleGAN}~\cite{CycleGAN} emerges is in this context. CycleGAN is different from Pix-to-Pix in that it consists of two GAN models to learn mapping function between two domains of image one direciton per one model respectively. It differs in that it compares the output image with the images in the output domain while the Pix-to-Pix model only compares with the ground truth label corresponding to the input image, and that it has cycle-consistency loss term in the loss function which helps keep the contents of output image do not differ too much from those of the input image. The authors of CycleGAN successfully built models to transform horse image into zebra image, picture taken in winter into taken in summer, and realistic photo into stylized painting of famous painters.
+
 
 \textbf{WGAN}: As an improvement of GAN, it replaces Jensen-Shannon divergence by Wasserstein distance to calculate the distance between distributions. It solves the mode collapse problem and it proposes an index standing for the quality of training where a larger index represents better results.
 
-\textbf{Pix2Pix}: The framework of Pix2Pix is based on GAN. Adopted paired training examples, Pix2Pix is able to deal with Image-to-Image translation that has similar performance of CycleGAN.
 
 \textbf{CycleGAN}: As an improvement of Pix2Pix, the model of CycleGAN does not required paired training examples to train the model. It contains two mapping functions $G:X\rightarrow Y$ and $F:Y\rightarrow X$ from two data sets $X,Y$, and associated with two discriminators $D_{X}$ and $D_{Y}$. In the model, two cycle consistency losses (Forward and Backward) was introduced so that it can achieve two mapping where $F(G(x))\approx x$ and $G(F(y))\approx y$\cite{CycleGAN}. In this work, we implemented the CycleGAN to work on the Sketch-to-Image translation. Using the U-net instead of the ResNet, we trained the model to specialized in generating realistic human face photograph from a human face sketch as well as generating sketch from human face photograph such that both sketches and human face photograph are indistinguishable from target domain.
 
@@ -23,14 +24,6 @@ In 2017, Jun-Yan Zhu et al. achieved transforming a horse image into a zebra usi
 
 The team would like to thank \emph{Tencent} for the generous sponsorship of this project.
 % Founded in November, 1998, Tencent is a leading provider of Internet value added services in China. Since its establishment, Tencent has maintained steady growth under its user-oriented operating strategies. On \(16^{\textnormal{th}}\) June 2004, Tencent Holdings Limited (SEHK 700) went public on the main board of the Hong Kong Stock Exchange.\\
-
-
-
-
-Our code is available at \texttt{https://github.com/SunQpark/SPIA2018\_cycle\_GAN}.
-
-
-
 
 \endinput
 
