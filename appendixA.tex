@@ -1,34 +1,9 @@
-\chapter{{\BibTeX} Sample Records, Record Types and Fields}\label{App:BibTeX-Records}
+\chapter{Sketch Filter on Image}\label{App:sketch_filter}
 
+The process of giving sketch effect in an photograph consists of 3 steps. First, the gaussian blur is applied on the original image. Then, the blured image is inverted and added to the original images, which result in a gray image containing edges of contents highlighted from the original image. The brightness and contrast shift are applied finally to produce sketch-like result images. We used gaussian filter with blur radius of uniform random sampled from 0.8 to 1.5, brightness shift with offset from 1.5 to 2.0 and contrast offset from 1.5 to 3.0.
 
+The reason this process was not used for the main experiments is because the images with this process did not seems to be similar from original sketch images, which caused model to learn undisirable behavior. Like the other parts of our work, code for this can be found in the github repository, and need PIL(python image library) to be excuted.
 
-
-% \begin{figure}[ht]
-% \label{BibSamples}
-% \begin{center}
-% \includegraphics[scale=0.6]{Graphics/BibTeX-Samples.eps}
-% \end{center}
-% \caption[Examples of {\BibTeX} records]{Examples of {\BibTeX} records for a \texttt{.bib} file ({\em The {LaTeX} Companion}, 2$^{nd}$ ed, 2004, 384--385)}  
-% \end{figure}
-
-% \newpage
-% \begin{figure}[ht]
-% \label{BibEntryTypes}
-% \begin{center}
-% \includegraphics[scale=0.7]{Graphics/BibTeX-Entry-Types.eps}
-% \end{center}
-% \caption[{\BibTeX} entry types]{{\BibTeX} entry types, entered on the first line of a {\BibTeX} record ({\em The {LaTeX} Companion}, 2$^{nd}$ ed, 2004, 375)}
-% \end{figure}
-
-% \newpage
-
-% \begin{figure}[ht]
-% \label{BobFields}
-% \begin{center}
-% \includegraphics[scale=1.0]{Graphics/BibTeX-Fields.eps}
-% \end{center}
-% \caption[{\BibTeX} fields]{{\BibTeX} fields, the ``catalog'' fields for a {\BibTeX} record.  (``The {LaTeX} Companion'', 2$^{nd}$ ed, 2004)} 
-% \end{figure}
 
 
 \endinput

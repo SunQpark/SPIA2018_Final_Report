@@ -1,7 +1,6 @@
 \chapter{Processing Data}\label{Ch:process_data}
 
 
-\section{Collection and Refinement of Data}
 In this section, we will explain about the progresses of collecting and refining data we've gone through. 
 Table~\ref{TABLE:composition} shows the composition of dataset we used in experiments. Unless mentioned otherwise, every dataset used in experiments composed as the proportion as Set1 in table.
 
@@ -25,11 +24,11 @@ Table~\ref{TABLE:composition} shows the composition of dataset we used in experi
 
 More details on each sources of data will be provided in following sections.
 
-\subsection{Photograph}
+\section{Photograph}
 
 For realistic photographs of human faces, we used Celebrity A~\cite{liu2015faceattributes} which contains more than 200,000 images of celebrity in the world. In addition to having clean images of human faces, this dataset contained `attributes', some additional imformation of images. Though those informations were not used directly as input to our neural networks, they were useful in some progress of preprocessing. We will describe about the details in ~\ref{preprocess}.
 
-\subsection{Sketch}
+\section{Sketch}
 
 The main portion of sketch image dataset we used was collected from Google Image search engine. However, the collected images were highly inconsistent, which was undisirable. 
 figure %TODO: add figure: bad examples
@@ -41,7 +40,7 @@ Although this dataset also provides face photographs paired with the sketch imag
 
 Examples of images in each dataset can be seen in fig.%TODO: add figure: example of images in dataset
 
-\subsection{Preprocess}\label{preprocess}
+\section{Preprocess}\label{preprocess}
 
 \begin{figure}[ht]
     \begin{center}

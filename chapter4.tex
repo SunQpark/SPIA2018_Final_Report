@@ -1,6 +1,6 @@
 \chapter{Model Structure}\label{Ch:Model}
 
-\section{Network Architectures}
+\section{Generator}
 
 As we mentioned earlier, baseline structure mainly used in this project is Cycle-GAN. The Cycle-GAN consists of two GAN models, which learn to translate images from one domain to the other, one direction per each respectively. 
 
@@ -18,6 +18,8 @@ Fig~\ref{FIG:unet} shows overall structure of U-net. While the U-net also featur
 \end{figure}
 
 While the original U-net only used central part of images abandoning the boundary features, we used input padding on the boundary inputs to keep images to be invariant in size. In addition, different from the original U-net, we replaced the transposed-convolution with nearest-neighbor upsample and convolution of kernel size 3, which are known to prevent output images from generating checkerboard-like artifacts by removing the overlap between filters~\cite{odena2016deconvolution}.
+
+\section{Discriminator}
 
 For the discriminators we used the 70 by 70 PatchGAN discriminator with instance normalizations, which is same as the original CycleGAN article. For stability of the train process, we added some noise to the real / fake label and flipped the labels once in a hundred.
 
