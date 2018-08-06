@@ -26,6 +26,8 @@ So far we have briefly introduced the overall structure of our research. Below i
 
 \textbf{Generating Sketch Image} does not requires complicated processing and can be implemented simply with image operations like gaussian blur, inverting color, add pixel values and brightness, contrast shift operation. We implementated simple version of sketch effect filters using PIL library but since this result was not so helpful to the final result, the detailed process will provided on appendix for those who are interested.
 
+\textbf{DualGAN}~\cite{DualGAN} The outline structure is similar to CycleGAN. It uses the exact generators and discriminators in \textbf{Pix-to-Pix}~\cite{pix2pix}. It implemented wasserstein distance for loss function and L1-distance for cycle-consistency loss.
+
 The team would like to thank \textbf{Tencent} for the generous sponsorship of this project.
 
 \endinput
